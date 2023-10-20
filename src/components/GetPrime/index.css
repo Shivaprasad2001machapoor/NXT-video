@@ -1,0 +1,28 @@
+.logo-img {
+  height: 20px;
+  width: 55px;
+}
+.popUp-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
+  display: flex;
+  flex-direction: row;
+  background-size: cover;
+  align-items: flex-start;
+  width: 50vw;
+  height: 30vh;
+  background-size: cover;
+  justify-content: space-between;
+}
+.popup-close-button {
+  border: 1px;
+  background-color: transparent;
+}
+.popUp {
+  width: 50vw;
+  height: 30vh;
+}
+.custom-popup {
+  position: absolute;
+  top: 500px; /* Adjust this value to position the popup vertically */
+  left: 100px; /* Adjust this value to position the popup horizontally */
+}

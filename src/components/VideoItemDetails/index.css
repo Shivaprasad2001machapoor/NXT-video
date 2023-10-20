@@ -1,0 +1,4 @@
+.container-video {
+  display: flex;
+  flex-direction: row;
+}

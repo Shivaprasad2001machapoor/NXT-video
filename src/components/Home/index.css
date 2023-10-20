@@ -1,0 +1,20 @@
+.home-container {
+  display: flex;
+  flex-direction: row;
+}
+.filter-content {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+}
+.output-content {
+  width: 75vw;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #475569;
+  background-color: transparent;
+  border-radius: 4px;
+  margin: 10px;
+}

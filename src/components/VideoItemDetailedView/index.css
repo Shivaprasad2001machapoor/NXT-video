@@ -1,0 +1,46 @@
+.view-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.view-time-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.view-text {
+  margin-right: 10px;
+}
+.dot {
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 5px;
+}
+.like-share-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.button-like {
+  color: #94a3b8;
+  background-color: transparent;
+  border: 0px;
+}
+.liked {
+  color: #4f46e5;
+  background-color: transparent;
+}
+.disliked {
+  color: #4f46e5;
+  background-color: transparent;
+}
+.saved {
+  color: #4f46e5;
+  background-color: transparent;
+}
+.dark {
+  background-color: black;
+  color: aliceblue;
+}

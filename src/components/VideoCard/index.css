@@ -1,0 +1,25 @@
+.thumbanil {
+  height: 250px;
+  width: 250px;
+}
+.video-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  word-wrap: normal;
+}
+.thumbanil-profile {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+.profile-channel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.link-video {
+  text-decoration: none;
+  color: #475569;
+}
