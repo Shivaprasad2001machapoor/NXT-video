@@ -2,8 +2,11 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import VideoCard from '../VideoCard'
+import TrendingHeader from '../TrendingHeader'
 import './index.css'
 import FilterLinks from '../FilterLinks'
+import Header from '../Header'
+import SaveContext from '../../context/SaveContext'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -77,35 +80,43 @@ class Trending extends Component {
     </div>
   )
 
-  renderProductsListView = () => {
-    const {videoList} = this.state
-    const shouldShowProductsList = videoList.length > 0
+  renderProductsListView = () => (
+    <SaveContext.Consumer>
+      {value => {
+        const {darkMode} = value
+        const {videoList} = this.state
+        const shouldShowProductsList = videoList.length > 0
 
-    return shouldShowProductsList ? (
-      <div className="all-products-container">
-        <ul className="products-list">
-          {videoList.map(video => (
-            <VideoCard videoData={video} key={video.id} />
-          ))}
-        </ul>
-      </div>
-    ) : (
-      <div className="no-products-view">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png"
-          className="no-products-img"
-          alt="no products"
-        />
-        <h1 className="no-products-heading">No Products Found</h1>
-        <p className="no-products-description">
-          We could not find any products. Try other filters.
-        </p>
-      </div>
-    )
-  }
+        return shouldShowProductsList ? (
+          <div
+            className={`all-products-container ${darkMode ? 'dark-mode' : ''}`}
+          >
+            <TrendingHeader />
+            <ul className={`products-list ${darkMode ? 'dark-mode' : ''}`}>
+              {videoList.map(video => (
+                <VideoCard videoData={video} key={video.id} />
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div className={`no-products-view ${darkMode ? 'dark-mode' : ''}`}>
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png"
+              className="no-products-img"
+              alt="no products"
+            />
+            <h1 className="no-products-heading">No Products Found</h1>
+            <p className="no-products-description">
+              We could not find any products. Try other filters.
+            </p>
+          </div>
+        )
+      }}
+    </SaveContext.Consumer>
+  )
 
   renderLoadingView = () => (
-    <div className="products-loader-container">
+    <div data-testid="loader" className="products-loader-container">
       <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
     </div>
   )
@@ -127,11 +138,14 @@ class Trending extends Component {
 
   render() {
     return (
-      <div className="getvideos-container">
-        <div>
-          <FilterLinks />
+      <div>
+        <Header />
+        <div className="getvideos-container">
+          <div>
+            <FilterLinks />
+          </div>
+          <div>{this.renderAllProducts()}</div>
         </div>
-        <div>{this.renderAllProducts()}</div>
       </div>
     )
   }

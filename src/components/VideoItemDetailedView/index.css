@@ -44,3 +44,11 @@
   background-color: black;
   color: aliceblue;
 }
+.channel-profile {
+  height: 75px;
+  width: 75px;
+}
+.channel-details-container {
+  display: flex;
+  flex-direction: row;
+}

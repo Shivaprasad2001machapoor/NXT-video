@@ -24,9 +24,9 @@ class GetPrime extends Component {
               <img
                 className="logo-img"
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                alt="website logo"
+                alt="nxt watch logo"
               />
-              <p>Buy NXT Watch premium prepaid plans with UPI</p>
+              <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
               <button type="button" className="buy-premium">
                 GET IT NOW
               </button>

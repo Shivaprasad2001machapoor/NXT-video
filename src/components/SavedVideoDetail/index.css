@@ -1,0 +1,12 @@
+.saved-video {
+  display: flex;
+  flex-direction: row;
+}
+.saved-video-channel-details {
+  display: flex;
+  flex-direction: row;
+}
+.thumbanil_saved {
+  height: 150px;
+  width: 200px;
+}

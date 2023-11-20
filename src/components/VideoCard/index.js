@@ -11,7 +11,7 @@ const VideoCard = props => {
   return (
     <Link to={`/videos/${id}`} className="link-video">
       <div className="video-container">
-        <img className="thumbanil" src={thumbnailUrl} alt={channel.name} />
+        <img className="thumbanil" src={thumbnailUrl} alt="video thumbnail" />
         <div className="profile-channel">
           <img
             className="thumbanil-profile"

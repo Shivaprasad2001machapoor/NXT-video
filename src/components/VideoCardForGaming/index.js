@@ -8,7 +8,7 @@ const VideoCardForGaming = props => {
   return (
     <Link to={`/videos/${id}`} className="link-video">
       <div className="video-container">
-        <img className="thumbanil" src={thumbnailUrl} alt={title} />
+        <img className="thumbanil" src={thumbnailUrl} alt="video thumbnail" />
         <div className="profile-channel">
           <p>{title}</p>
         </div>

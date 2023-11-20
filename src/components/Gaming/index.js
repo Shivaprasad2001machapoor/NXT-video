@@ -5,6 +5,8 @@ import VideoCardForGaming from '../VideoCardForGaming'
 import './index.css'
 import FilterLinks from '../FilterLinks'
 import GamingHeader from '../GamingHeader'
+import Header from '../Header'
+import SaveContext from '../../context/SaveContext'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -82,11 +84,18 @@ class Gaming extends Component {
 
     return shouldShowProductsList ? (
       <div className="all-products-container">
-        <ul className="products-list">
-          {videoList.map(video => (
-            <VideoCardForGaming videoData={video} key={video.id} />
-          ))}
-        </ul>
+        <SaveContext.Consumer>
+          {value => {
+            const {darkMode} = value
+            return (
+              <ul className={`products-list ${darkMode ? 'dark-mode' : ''}`}>
+                {videoList.map(video => (
+                  <VideoCardForGaming videoData={video} key={video.id} />
+                ))}
+              </ul>
+            )
+          }}
+        </SaveContext.Consumer>
       </div>
     ) : (
       <div className="no-products-view">
@@ -104,7 +113,7 @@ class Gaming extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="products-loader-container">
+    <div data-testid="loader" className="products-loader-container">
       <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
     </div>
   )
@@ -126,15 +135,18 @@ class Gaming extends Component {
 
   render() {
     return (
-      <div className="getvideos-container">
-        <div>
-          <FilterLinks />
-        </div>
-        <div>
+      <div>
+        <Header />
+        <div className="getvideos-container">
           <div>
-            <GamingHeader />
+            <FilterLinks />
           </div>
-          {this.renderAllProducts()}
+          <div>
+            <div>
+              <GamingHeader />
+            </div>
+            {this.renderAllProducts()}
+          </div>
         </div>
       </div>
     )

@@ -2,3 +2,15 @@
   background-color: black;
   color: #ffffff;
 }
+.contact-app-logo {
+  height: 50px;
+  width: 50px;
+  margin: 7px;
+}
+.filter-link-container {
+  display: flex;
+  flex-direction: column;
+}
+.filter-content {
+  height: 100vh;
+}

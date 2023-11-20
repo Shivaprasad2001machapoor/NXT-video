@@ -6,6 +6,7 @@ import Header from '../Header'
 import VideoItemDetailedView from '../VideoItemDetailedView'
 import FilterLinks from '../FilterLinks'
 import './index.css'
+import SaveContext from '../../context/SaveContext'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -77,24 +78,45 @@ class VideoItemDetails extends Component {
     )
   }
 
+  handleRetry = () => {
+    this.getVideoData()
+  }
+
   renderLoadingView = () => (
-    <div className="products-details-loader-container">
+    <div data-testid="loader" className="products-loader-container">
       <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
     </div>
   )
 
   renderFailureView = () => (
-    <div className="product-details-error-view-container">
-      <img
-        alt="error view"
-        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
-        className="error-view-image"
-      />
-      <h1 className="product-not-found-heading">Product Not Found</h1>
-      <button type="button" className="button">
-        Continue Shopping
-      </button>
-    </div>
+    <SaveContext.Consumer>
+      {value => {
+        const {darkMode} = value
+        const failureImage = darkMode
+          ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+          : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+
+        return (
+          <div className="product-details-error-view-container">
+            <img
+              alt="error view"
+              src={failureImage}
+              className="error-view-image"
+            />
+            <h1 className="product-not-found-heading">
+              Oops! Something Went Wrong
+            </h1>
+            <p className="products-failure-description">
+              We are having some trouble to complete your request. Please try
+              again.
+            </p>
+            <button type="button" className="button" onClick={this.handleRetry}>
+              Retry
+            </button>
+          </div>
+        )
+      }}
+    </SaveContext.Consumer>
   )
 
   renderProductDetails = () => {

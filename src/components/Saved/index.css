@@ -2,3 +2,15 @@
   background-color: black;
   color: #ffffff;
 }
+.saved-videos-container {
+  display: flex;
+  flex-direction: row;
+}
+.empty-view-img {
+  height: 250px;
+  width: 250px;
+}
+.empty-view-container {
+  display: flex;
+  flex-direction: row;
+}

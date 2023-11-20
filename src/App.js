@@ -29,7 +29,7 @@ class App extends Component {
 
   render() {
     const {saveList, darkMode} = this.state
-
+    console.log(saveList)
     return (
       <SaveContext.Provider
         value={{
@@ -50,7 +50,7 @@ class App extends Component {
           />
           <ProtectedRoute exact path="/gaming" component={Gaming} />
           <ProtectedRoute exact path="/trending" component={Trending} />
-          <ProtectedRoute exact path="/saved" component={Saved} />
+          <ProtectedRoute exact path="/saved-videos" component={Saved} />
           <Redirect to="/not-found" />
         </Switch>
       </SaveContext.Provider>
